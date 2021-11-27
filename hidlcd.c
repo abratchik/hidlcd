@@ -41,14 +41,42 @@ HIDDisplayParams *hidlcd_get_display_params(hid_device *dev) {
     return dp;
 }
 
-int hidlcd_set_cursor(hid_device *dev, unsigned char row, unsigned char col) {
+int hidlcd_set_cursor(hid_device *dev, u_int8_t row, u_int8_t col) {
     
-    unsigned char buf[3] = {HID_AUXD_CURSOR_POS, row, col};
+    if(!dev) return -1;
+    
+    u_int8_t buf[3] = {HID_AUXD_CURSOR_POS, row, col};
     
     int res = hid_send_feature_report(dev, buf, sizeof(buf));
     
     return res;
+}
+
+int hidlcd_set_cursor_flags_ext(hid_device *dev, u_int8_t flags, u_int8_t mode) {
     
+    if(!dev) return -1;
+    
+    u_int8_t buf[2] = {HID_AUXD_CURSOR_FLAGS, 0};
+    
+    int res = hid_get_feature_report(dev, buf, sizeof(buf));
+    if(res > 0) {
+        
+        switch(mode) {
+            case HID_ADCMD_MODE_OFF:
+                buf[1] &= ~flags;
+                break;
+            case HID_ADCMD_MODE_OVERWRITE:
+                buf[1] = flags;
+                break;
+            default:
+                buf[1] |= flags;
+                break;
+        }
+        
+        res = hid_send_feature_report(dev, buf, sizeof(buf));
+    }
+
+    return res;
 }
 
 int hidlcd_print(hid_device *dev, HIDDisplayParams *display_params, const unsigned char *str) {
@@ -74,4 +102,41 @@ int hidlcd_print(hid_device *dev, HIDDisplayParams *display_params, const unsign
     free(buf);
     
     return len;
+}
+
+int hidlcd_send_command(hid_device *dev, u_int8_t command) {
+    return hidlcd_send_command_ext(dev, command, HID_ADCMD_MODE_DEFAULT);
+}
+
+int hidlcd_send_command_ext(hid_device *dev, u_int8_t command, u_int8_t mode) {
+    
+    if(!dev) return -1;
+    
+    size_t buffsize = 2;
+    
+    u_int8_t buf[buffsize];
+    
+    buf[0] = HID_AUXD_CTRL_REPORT;
+    
+    int res = hid_get_feature_report(dev, buf, sizeof(buf));
+    
+    if(res > 0) {
+        
+        switch(mode) {
+            case HID_ADCMD_MODE_OFF:
+                buf[1] &= ~command;
+                break;
+            case HID_ADCMD_MODE_OVERWRITE:
+                buf[1] = command;
+                break;
+            default:
+                buf[1] |= command;
+                break;
+        }
+        
+        res = hid_send_feature_report(dev, buf, sizeof(buf));
+    }
+    
+    return res;
+    
 }

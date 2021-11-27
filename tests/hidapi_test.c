@@ -152,7 +152,66 @@ int main(int argc, char* argv[])
             wprintf(L"hidlcd_print failed: %ls\n", hid_error(handle));
             hid_close(handle);
             return -1;
-        }            
+        }    
+
+        sleep(5);
+        
+        res = hidlcd_send_command(handle, HID_AUXD_CLEAR);
+        if(res > 0) {
+            wprintf(L"Successfully cleared screen\n");
+        }
+        else {
+            wprintf(L"hidlcd_send_command failed: %ls\n", hid_error(handle));
+            hid_close(handle);
+            return -1;
+        }    
+        
+        res = hidlcd_print(handle, dp, "Hello,World!");
+        
+        sleep(5);
+        
+        res = hidlcd_send_command_ext(handle, HID_AUXD_DISABLE, HID_ADCMD_MODE_OVERWRITE);
+        if(res > 0) {
+            wprintf(L"Successfully switched off the screen\n");
+        }
+        else {
+            wprintf(L"hidlcd_send_command failed: %ls\n", hid_error(handle));
+            hid_close(handle);
+            return -1;
+        }    
+        
+        sleep(5);
+        
+        res = hidlcd_send_command(handle, HID_AUXD_ENABLE | HID_AUXD_HSCROLL);
+        if(res > 0) {
+            wprintf(L"Successfully switched on the screen\n");
+        }
+        else {
+            wprintf(L"hidlcd_send_command failed: %ls\n", hid_error(handle));
+            hid_close(handle);
+            return -1;
+        }   
+        
+        res = hidlcd_print(handle, dp, "Hello, LCD!");
+        
+        res = hidlcd_set_cursor_flags_ext(handle, HID_ADCC_ENABLE | HID_ADCC_BLINK,0);
+                
+        sleep(5);
+        res = hidlcd_set_cursor_flags_ext(handle, HID_ADCC_INCREMENT,HID_ADCMD_MODE_OVERWRITE);
+        
+        res = hidlcd_send_command_ext(handle, HID_AUXD_HSCROLL, HID_ADCMD_MODE_OFF);
+        res = hidlcd_send_command(handle, HID_AUXD_CLEAR);
+                
+        res = hidlcd_print(handle, dp, "Hi, Arduino!");  
+        
+        res = hidlcd_set_cursor(handle, 1, 0);
+        res = hidlcd_print(handle, dp, "Second line!"); 
+        
+        sleep(5);
+        
+        res = hidlcd_send_command(handle, HID_AUXD_CLEAR);
+        res = hidlcd_print(handle, dp, "SUCCESS!"); 
+        
 
 	// Close the device
 	hid_close(handle);

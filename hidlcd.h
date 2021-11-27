@@ -37,6 +37,8 @@ extern "C" {
 #define HID_AUXD_CURSOR_POS          0x02 // Cursor position report
 #define HID_AUXD_CHAR_REPORT         0x03 // Character report
 #define HID_AUXD_FONT_REPORT         0x04 // Font report
+#define HID_AUXD_CTRL_REPORT         0x05 // Control report
+#define HID_AUXD_CURSOR_FLAGS        0x06 // Control report
 
 
 // Display params flags
@@ -44,24 +46,50 @@ extern "C" {
 #define HID_AUXD_DATAREAD_BACK      0x40 // Character Report can be read back when set
 #define HID_AUXD_FONTREAD_BACK      0x20 // Font Report can be read back when set
 
+// Display control flags
+#define HID_AUXD_CLEAR              0x80 // Clear Display command
+#define HID_AUXD_ENABLE             0x40 // Display enable
+#define HID_AUXD_SSENABLE           0x20 // Screen Saver enable
+#define HID_AUXD_VSCROLL            0x10 // Vertical Scroll
+#define HID_AUXD_HSCROLL            0x08 // Horizintal Scroll    
+#define HID_AUXD_DISABLE            0x0  // Display disable
+    
+#define HID_ADCMD_MODE_DEFAULT      0x0  // command flags are added to the existing state of screen
+#define HID_ADCMD_MODE_OFF          0x1  // clear the command/state
+#define HID_ADCMD_MODE_OVERWRITE    0x2  // ovewrite the state of the screen  
+    
+// Cursor control flags
+#define HID_ADCC_PIXELPOS           0x80 // Cursor Pixel Positioning
+#define HID_ADCC_INCREMENT          0x40 // Cursor Mode = Increment
+#define HID_ADCC_ENABLE             0x20 // Cursor Enable
+#define HID_ADCC_BLINK              0x10 // Cursor Blink     
+    
 //================================================================================
 
 typedef struct
 {
-  unsigned char rows;     // 0x35
-  unsigned char cols;     // 0x36
-  unsigned char chrw;     // 0x3d char width 
-  unsigned char chrh;     // 0x3e char height
-  unsigned char flags;    // 0x21|0x22|0x29|5 unused
+  u_int8_t rows;     // 0x35
+  u_int8_t cols;     // 0x36
+  u_int8_t chrw;     // 0x3d char width 
+  u_int8_t chrh;     // 0x3e char height
+  u_int8_t flags;    // 0x21|0x22|0x29|5 unused
 } HIDDisplayParams;
 
 HIDDisplayParams* HID_API_EXPORT HID_API_CALL hidlcd_get_display_params(hid_device *dev);
 
-int HID_API_EXPORT HID_API_CALL hidlcd_set_cursor(hid_device *dev, unsigned char row, unsigned char col);
+int HID_API_EXPORT HID_API_CALL hidlcd_set_cursor(hid_device *dev, u_int8_t row, u_int8_t col);
+
+int HID_API_EXPORT HID_API_CALL hidlcd_set_cursor_flags_ext(hid_device *dev, u_int8_t flags, u_int8_t mode);
 
 int HID_API_EXPORT HID_API_CALL hidlcd_print(hid_device *dev, 
                                             HIDDisplayParams *display_params, 
                                             const unsigned char *string);
+
+int HID_API_EXPORT HID_API_CALL hidlcd_send_command_ext(hid_device *dev, u_int8_t command, u_int8_t mode);
+
+int HID_API_EXPORT HID_API_CALL hidlcd_send_command(hid_device *dev, u_int8_t command);
+
+
 
 #ifdef __cplusplus
 }
