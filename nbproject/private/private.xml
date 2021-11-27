@@ -9,6 +9,8 @@
         <group>
             <file>file:/Users/abratchik/NetBeansProjects/hidlcd/tests/hidapi_test.c</file>
             <file>file:/Users/abratchik/NetBeansProjects/hidlcd/hidlcd.c</file>
+            <file>file:/Users/abratchik/NetBeansProjects/hidlcd/README.adoc</file>
+            <file>file:/Users/abratchik/NetBeansProjects/hidlcd/hidlcd.h</file>
         </group>
     </open-files>
 </project-private>
