@@ -50,7 +50,7 @@ int main(int argc, char* argv[])
         struct hid_device_info *devs, *cur_dev;
 
 	// Initialize the hidapi library
-	if(hid_init()) {
+	if(hidlcd_init()) {
             wprintf(L"Could not init the hidraw library\n");
             return 1;
         }
@@ -65,7 +65,7 @@ int main(int argc, char* argv[])
         
 	// Open the device using the VID, PID,
 	// and optionally the Serial number.
-	handle = hid_open(USB_VID, USB_PID, NULL);
+	handle = hidlcd_open(USB_VID, USB_PID, NULL);
         
         if(handle == NULL) 
         {
@@ -214,10 +214,10 @@ int main(int argc, char* argv[])
         
 
 	// Close the device
-	hid_close(handle);
+	hidlcd_close(handle);
 
 	// Finalize the hidapi library
-	res = hid_exit();
+	res = hidlcd_exit();
 
 	return 0;
 }

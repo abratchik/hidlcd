@@ -17,6 +17,23 @@
 
 #include "hidlcd.h"
 
+hid_device * hidlcd_open(unsigned short vendor_id, unsigned short product_id, const wchar_t *serial_number) {
+    return hid_open( vendor_id, product_id, serial_number);
+}
+
+void hidlcd_close(hid_device *dev) {
+    hid_close(dev);
+}
+
+int hidlcd_exit() {
+    return hid_exit();
+}
+
+int hidlcd_init(void) {
+    return hid_init();
+}
+
+
 HIDDisplayParams *hidlcd_get_display_params(hid_device *dev) {
     
     

@@ -77,6 +77,12 @@ typedef struct
 
 HIDDisplayParams* HID_API_EXPORT HID_API_CALL hidlcd_get_display_params(hid_device *dev);
 
+HID_API_EXPORT hid_device * HID_API_CALL hidlcd_open(unsigned short vendor_id, unsigned short product_id, const wchar_t *serial_number);
+void HID_API_EXPORT HID_API_CALL hidlcd_close(hid_device *dev);
+int HID_API_EXPORT HID_API_CALL hidlcd_exit(void);
+int HID_API_EXPORT HID_API_CALL hidlcd_init(void);
+
+
 int HID_API_EXPORT HID_API_CALL hidlcd_set_cursor(hid_device *dev, u_int8_t row, u_int8_t col);
 
 int HID_API_EXPORT HID_API_CALL hidlcd_set_cursor_flags_ext(hid_device *dev, u_int8_t flags, u_int8_t mode);
