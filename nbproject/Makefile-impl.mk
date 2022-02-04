@@ -27,11 +27,11 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 PROJECTNAME=hidlcd
 
 # Active Configuration
-DEFAULTCONF=Linux-Debug
+DEFAULTCONF=Debug
 CONF=${DEFAULTCONF}
 
 # All Configurations
-ALLCONFS=Linux-Debug Debug Release 
+ALLCONFS=Debug Release 
 
 
 # build

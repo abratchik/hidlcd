@@ -1,4 +1,4 @@
-= Driver library for HID-compliant LCD Display =
+# HIDLCD Driver library for HID-compliant LCD Display 
 
 This library allows host to communicate with 
 https://github.com/abratchik/HIDAuxiliaryDisplay[HID-compliant Auxiliary Display based on Arduino]. 
@@ -6,10 +6,14 @@ The main idea of this library is to provide a simple unified communication with 
 supported by Arduino. Such displays can be used for showing system information such as hardware 
 temperature, fan speed, etc., and used by host applications as necessary.
 
-== Tested on Operating Systems ==
+HIDLCD is a multi-platform library which allows an application to interface
+with USB and Bluetooth HID-Class devices on Windows, Linux, FreeBSD, and macOS. It is build on top of the 
+HIDAPI library and provides the next level of abstraction specific to the auxiliary LCD displays.
+
+## Tested on Operating Systems
 * Linux 18.04 LTS
 
-== License ==
+## License 
 
 Copyright (c) Alex Bratchik 2021. All right reserved.
 

@@ -6,14 +6,6 @@
 CND_BASEDIR=`pwd`
 CND_BUILDDIR=build
 CND_DISTDIR=dist
-# Linux-Debug configuration
-CND_PLATFORM_Linux-Debug=GNU-Linux
-CND_ARTIFACT_DIR_Linux-Debug=dist/Linux-Debug/GNU-Linux
-CND_ARTIFACT_NAME_Linux-Debug=libhidlcd.so
-CND_ARTIFACT_PATH_Linux-Debug=dist/Linux-Debug/GNU-Linux/libhidlcd.so
-CND_PACKAGE_DIR_Linux-Debug=dist/Linux-Debug/GNU-Linux/package
-CND_PACKAGE_NAME_Linux-Debug=libhidlcd.so.tar
-CND_PACKAGE_PATH_Linux-Debug=dist/Linux-Debug/GNU-Linux/package/libhidlcd.so.tar
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux
