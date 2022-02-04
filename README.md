@@ -1,7 +1,7 @@
 # HIDLCD Driver library for HID-compliant LCD Display 
 
-This library allows host to communicate with 
-https://github.com/abratchik/HIDAuxiliaryDisplay[HID-compliant Auxiliary Display based on Arduino]. 
+This library allows host to communicate with [HID-compliant Auxiliary Display based on Arduino]
+(https://github.com/abratchik/HIDAuxiliaryDisplay). 
 The main idea of this library is to provide a simple unified communication with the small LCD displays 
 supported by Arduino. Such displays can be used for showing system information such as hardware 
 temperature, fan speed, etc., and used by host applications as necessary.
