@@ -15,7 +15,7 @@ HIDAPI library and provides the next level of abstraction specific to the auxili
 
 ## License 
 
-Copyright (c) Alex Bratchik 2021. All right reserved.
+Copyright (c) Alex Bratchik 2022. All right reserved.
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
