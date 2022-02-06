@@ -1,31 +1,44 @@
 # HIDLCD Driver library for HID-compliant LCD Display 
 
-This library allows host to communicate with [HID-compliant Auxiliary Display based on Arduino](https://github.com/abratchik/HIDAuxiliaryDisplay). 
+This driver allows the host to communicate with [HID-compliant Auxiliary Display based on Arduino](https://github.com/abratchik/HIDAuxiliaryDisplay). 
 The main idea of this library is to provide a simple unified communication with the small LCD displays 
-supported by Arduino. Such displays can be used for showing system information such as hardware 
-temperature, fan speed, etc., and used by host applications as necessary.
+supported by Arduino. Such displays can be used for showing system information such as hardware temperature, 
+fan speed, percentage of memory available etc., and used by host applications as necessary.
 
-HIDLCD is a multi-platform library which allows an application to interface
-with USB and Bluetooth HID-Class devices on Windows, Linux, FreeBSD, and macOS. It is build on top of the 
-HIDAPI library and provides the next level of abstraction specific to the auxiliary LCD displays.
+HIDLCD is build on top of the HIDAPI library and provides the next level of abstraction specific to the HID-compliant 
+auxiliary LCD displays.
 
-## Tested on Operating Systems
-* Linux 18.04 LTS
+## Supported displays
+Compatible types of displays include:
+* 1602 LCD Display 
+* 1604 LCD Display (to be tested) 
+* 2004 LCD Display (to be tested)
 
-## License 
+## Supported operating systems
+* Linux (tested on Ubuntu 18.04 LTS)
 
-Copyright (c) Alex Bratchik 2022. All right reserved.
+## Architecture of the solution
+The overall architecture of the solution is represented on the image below:
 
-This library is free software; you can redistribute it and/or
-modify it under the terms of the GNU Lesser General Public
-License as published by the Free Software Foundation; either
-version 2.1 of the License, or (at your option) any later version.
+![Alt text](https://github.com/abratchik/HIDAuxiliaryDisplay/img/HIDAuxiliaryDisplayArchitecture.png)
 
-This library is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-Lesser General Public License for more details.
+The solution is consisted of 2 parts - the HID-compliant LCD display and the host. The host part 
+contains the auxdisplay service, the HIDLCD driver (this project) and the HIDAPI library.
 
-You should have received a copy of the GNU Lesser General Public
-License along with this library; if not, write to the Free Software
-Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
+## Installation
+Currently, only Linux hosts are supported so the installation procedure below describes the steps to be performed 
+on Linux.
+
+Before executing the steps below, please ensure the developer tools are installed on your host. If your operating 
+system is Ubuntu, you can run `sudo apt update` & `sudo apt install build-essential` in the bash terminal. 
+
+1. Install [HIDAPI library](https://github.com/libusb/hidapi). Just follow the instructions in HIDAPI Readme.
+2. Clone this repository to a folder on your host machine.
+3. Navigate to the folder and execute `make` and `sudo make install`
+
+## Usage
+TBD
+
+## License
+
+[GPL v.3](http://www.gnu.org/copyleft/gpl.html)
