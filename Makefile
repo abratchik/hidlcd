@@ -49,6 +49,9 @@ MKDIR=mkdir
 CP=cp
 CCADMIN=CCadmin
 
+INCDIR=/usr/local/include
+LIBDIR=/usr/local/lib
+LIBNAME=hidlcd
 
 # build
 build: .build-post
@@ -119,6 +122,13 @@ help: .help-post
 .help-post: .help-impl
 # Add your post 'help' code here...
 
+# Install target
+install:
+	@echo "Configuration": ${CND_PLATFORM_${CONF}}
+
+	@install -v -m 557 ${CND_ARTIFACT_PATH_${CONF}} ${LIBDIR}
+	@${MKDIR} -p ${INCDIR}/${LIBNAME}
+	@install -v -m 557 ${LIBNAME}/${LIBNAME}.h ${INCDIR}/${LIBNAME}
 
 
 # include project implementation makefile

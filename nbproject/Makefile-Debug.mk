@@ -62,7 +62,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-L../hidapi/build/src/linux -lhidapi-hidraw
+LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -70,12 +70,12 @@ LDLIBSOPTIONS=-L../hidapi/build/src/linux -lhidapi-hidraw
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libhidlcd.${CND_DLIB_EXT}: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libhidlcd.${CND_DLIB_EXT} ${OBJECTFILES} ${LDLIBSOPTIONS} -shared -fPIC
+	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libhidlcd.${CND_DLIB_EXT} ${OBJECTFILES} ${LDLIBSOPTIONS} -lhidapi-hidraw -shared -fPIC
 
 ${OBJECTDIR}/linux/hidlcd.o: linux/hidlcd.c
 	${MKDIR} -p ${OBJECTDIR}/linux
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I../hidapi/hidapi -Ihidlcd -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/linux/hidlcd.o linux/hidlcd.c
+	$(COMPILE.c) -g -Ihidlcd -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/linux/hidlcd.o linux/hidlcd.c
 
 # Subprojects
 .build-subprojects:
@@ -92,7 +92,7 @@ ${TESTDIR}/TestFiles/f1: ${TESTDIR}/tests/hidapi_test.o ${OBJECTFILES:%.o=%_noma
 ${TESTDIR}/tests/hidapi_test.o: tests/hidapi_test.c 
 	${MKDIR} -p ${TESTDIR}/tests
 	${RM} "$@.d"
-	$(COMPILE.c) -g -I../hidapi/hidapi -Ihidlcd -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/hidapi_test.o tests/hidapi_test.c
+	$(COMPILE.c) -g -Ihidlcd -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/hidapi_test.o tests/hidapi_test.c
 
 
 ${OBJECTDIR}/linux/hidlcd_nomain.o: ${OBJECTDIR}/linux/hidlcd.o linux/hidlcd.c 
@@ -103,7 +103,7 @@ ${OBJECTDIR}/linux/hidlcd_nomain.o: ${OBJECTDIR}/linux/hidlcd.o linux/hidlcd.c
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} "$@.d";\
-	    $(COMPILE.c) -g -I../hidapi/hidapi -Ihidlcd -fPIC  -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/linux/hidlcd_nomain.o linux/hidlcd.c;\
+	    $(COMPILE.c) -g -Ihidlcd -fPIC  -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/linux/hidlcd_nomain.o linux/hidlcd.c;\
 	else  \
 	    ${CP} ${OBJECTDIR}/linux/hidlcd.o ${OBJECTDIR}/linux/hidlcd_nomain.o;\
 	fi

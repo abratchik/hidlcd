@@ -31,7 +31,7 @@ extern "C" {
 
 #include <stdlib.h>
 #include <string.h>
-#include <hidapi.h>
+#include <hidapi/hidapi.h>
 
 #define HID_AUXD_DISPLAY_PARAMS      0x01 // Display parameters report
 #define HID_AUXD_CURSOR_POS          0x02 // Cursor position report
