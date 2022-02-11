@@ -24,6 +24,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 #include <wchar.h> // wprintf
 
@@ -33,6 +34,8 @@
 
 #define USB_VID 0x2341
 #define USB_PID 0x8036
+
+#define TEST_DELAY 5000000
 
 /*
  * Simple C Test Suite
@@ -154,7 +157,7 @@ int main(int argc, char* argv[])
             return -1;
         }    
 
-        sleep(5);
+        usleep(TEST_DELAY);
         
         res = hidlcd_send_command(handle, HID_AUXD_CLEAR);
         if(res > 0) {
@@ -168,7 +171,7 @@ int main(int argc, char* argv[])
         
         res = hidlcd_print(handle, dp, "Hello,World!");
         
-        sleep(5);
+        usleep(TEST_DELAY);
         
         res = hidlcd_send_command_ext(handle, HID_AUXD_DISABLE, HID_ADCMD_MODE_OVERWRITE);
         if(res > 0) {
@@ -180,7 +183,7 @@ int main(int argc, char* argv[])
             return -1;
         }    
         
-        sleep(5);
+        usleep(TEST_DELAY);
         
         res = hidlcd_send_command(handle, HID_AUXD_ENABLE | HID_AUXD_HSCROLL);
         if(res > 0) {
@@ -196,7 +199,7 @@ int main(int argc, char* argv[])
         
         res = hidlcd_set_cursor_flags_ext(handle, HID_ADCC_ENABLE | HID_ADCC_BLINK,0);
                 
-        sleep(5);
+        usleep(TEST_DELAY);
         res = hidlcd_set_cursor_flags_ext(handle, HID_ADCC_INCREMENT,HID_ADCMD_MODE_OVERWRITE);
         
         res = hidlcd_send_command_ext(handle, HID_AUXD_HSCROLL, HID_ADCMD_MODE_OFF);
@@ -207,7 +210,7 @@ int main(int argc, char* argv[])
         res = hidlcd_set_cursor(handle, 1, 0);
         res = hidlcd_print(handle, dp, "Second line!"); 
         
-        sleep(5);
+        usleep(TEST_DELAY);
         
         res = hidlcd_send_command(handle, HID_AUXD_CLEAR);
         res = hidlcd_print(handle, dp, "SUCCESS!"); 

@@ -14,10 +14,10 @@
       <logicalFolder name="hidlcd" displayName="hidlcd" projectFiles="true">
         <itemPath>hidlcd/hidlcd.h</itemPath>
       </logicalFolder>
-      <logicalFolder name="linux" displayName="linux" projectFiles="true">
-        <itemPath>linux/hidlcd.c</itemPath>
-      </logicalFolder>
       <logicalFolder name="m4" displayName="m4" projectFiles="true">
+      </logicalFolder>
+      <logicalFolder name="linux" displayName="src" projectFiles="true">
+        <itemPath>src/hidlcd.c</itemPath>
       </logicalFolder>
       <itemPath>.dep.inc</itemPath>
       <itemPath>.gitignore</itemPath>
@@ -44,9 +44,10 @@
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
-    <conf name="Debug" type="2">
+    <conf name="Linux_Debug" type="2" platformSpecific="true">
       <toolsSet>
-        <compilerSet>default</compilerSet>
+        <compilerSet>GNU|GNU</compilerSet>
+        <platform>2</platform>
         <dependencyChecking>true</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
@@ -85,6 +86,11 @@
       </item>
       <item path="VERSION" ex="false" tool="3" flavor2="0">
       </item>
+      <folder path="TestFiles">
+        <linkerTool>
+          <commandLine>-lhidapi-hidraw</commandLine>
+        </linkerTool>
+      </folder>
       <folder path="TestFiles/f1">
         <linkerTool>
           <output>${TESTDIR}/TestFiles/f1</output>
@@ -92,7 +98,7 @@
       </folder>
       <item path="hidlcd/hidlcd.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="linux/hidlcd.c" ex="false" tool="0" flavor2="0">
+      <item path="src/hidlcd.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="tests/hidapi_test.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -162,7 +168,66 @@
       </folder>
       <item path="hidlcd/hidlcd.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="linux/hidlcd.c" ex="false" tool="0" flavor2="0">
+      <item path="src/hidlcd.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="tests/hidapi_test.c" ex="false" tool="0" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Mac_Debug" type="2" platformSpecific="true">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <platform>4</platform>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <incDir>
+            <pElem>hidlcd</pElem>
+          </incDir>
+        </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>hidlcd</pElem>
+          </incDir>
+        </ccTool>
+        <linkerTool>
+          <commandLine>-lhidapi</commandLine>
+        </linkerTool>
+      </compileType>
+      <item path=".dep.inc" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path=".gitignore" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="AUTHORS" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="COPYING" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ChangeLog" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="LICENSE" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="NEWS" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="README.md" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="VERSION" ex="false" tool="3" flavor2="0">
+      </item>
+      <folder path="TestFiles">
+        <linkerTool>
+          <commandLine>-lhidapi</commandLine>
+        </linkerTool>
+      </folder>
+      <folder path="TestFiles/f1">
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f1</output>
+        </linkerTool>
+      </folder>
+      <item path="hidlcd/hidlcd.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/hidlcd.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="tests/hidapi_test.c" ex="false" tool="0" flavor2="0">
       </item>

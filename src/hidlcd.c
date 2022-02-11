@@ -96,7 +96,7 @@ int hidlcd_set_cursor_flags_ext(hid_device *dev, u_int8_t flags, u_int8_t mode) 
     return res;
 }
 
-int hidlcd_print(hid_device *dev, HIDDisplayParams *display_params, const unsigned char *str) {
+int hidlcd_print(hid_device *dev, HIDDisplayParams *display_params, const char *str) {
     
     if(!dev || !display_params || !display_params->cols) return -1;
     
@@ -155,5 +155,5 @@ int hidlcd_send_command_ext(hid_device *dev, u_int8_t command, u_int8_t mode) {
     }
     
     return res;
-    
+
 }

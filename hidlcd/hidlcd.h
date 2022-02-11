@@ -89,7 +89,7 @@ int HID_API_EXPORT HID_API_CALL hidlcd_set_cursor_flags_ext(hid_device *dev, u_i
 
 int HID_API_EXPORT HID_API_CALL hidlcd_print(hid_device *dev, 
                                             HIDDisplayParams *display_params, 
-                                            const unsigned char *string);
+                                            const char *string);
 
 int HID_API_EXPORT HID_API_CALL hidlcd_send_command_ext(hid_device *dev, u_int8_t command, u_int8_t mode);
 

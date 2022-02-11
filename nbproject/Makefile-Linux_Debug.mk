@@ -23,7 +23,7 @@ AS=as
 # Macros
 CND_PLATFORM=GNU-Linux
 CND_DLIB_EXT=so
-CND_CONF=Debug
+CND_CONF=Linux_Debug
 CND_DISTDIR=dist
 CND_BUILDDIR=build
 
@@ -35,7 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/linux/hidlcd.o
+	${OBJECTDIR}/src/hidlcd.o
 
 # Test Directory
 TESTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tests
@@ -72,10 +72,10 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libhidlcd.${CND_DLIB_EXT}: ${OBJECTFI
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libhidlcd.${CND_DLIB_EXT} ${OBJECTFILES} ${LDLIBSOPTIONS} -lhidapi-hidraw -shared -fPIC
 
-${OBJECTDIR}/linux/hidlcd.o: linux/hidlcd.c
-	${MKDIR} -p ${OBJECTDIR}/linux
+${OBJECTDIR}/src/hidlcd.o: src/hidlcd.c
+	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.c) -g -Ihidlcd -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/linux/hidlcd.o linux/hidlcd.c
+	$(COMPILE.c) -g -Ihidlcd -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/hidlcd.o src/hidlcd.c
 
 # Subprojects
 .build-subprojects:
@@ -86,7 +86,7 @@ ${OBJECTDIR}/linux/hidlcd.o: linux/hidlcd.c
 
 ${TESTDIR}/TestFiles/f1: ${TESTDIR}/tests/hidapi_test.o ${OBJECTFILES:%.o=%_nomain.o}
 	${MKDIR} -p ${TESTDIR}/TestFiles
-	${LINK.c} -o ${TESTDIR}/TestFiles/f1 $^ ${LDLIBSOPTIONS}   
+	${LINK.c} -o ${TESTDIR}/TestFiles/f1 $^ ${LDLIBSOPTIONS} -lhidapi-hidraw  
 
 
 ${TESTDIR}/tests/hidapi_test.o: tests/hidapi_test.c 
@@ -95,17 +95,17 @@ ${TESTDIR}/tests/hidapi_test.o: tests/hidapi_test.c
 	$(COMPILE.c) -g -Ihidlcd -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/hidapi_test.o tests/hidapi_test.c
 
 
-${OBJECTDIR}/linux/hidlcd_nomain.o: ${OBJECTDIR}/linux/hidlcd.o linux/hidlcd.c 
-	${MKDIR} -p ${OBJECTDIR}/linux
-	@NMOUTPUT=`${NM} ${OBJECTDIR}/linux/hidlcd.o`; \
+${OBJECTDIR}/src/hidlcd_nomain.o: ${OBJECTDIR}/src/hidlcd.o src/hidlcd.c 
+	${MKDIR} -p ${OBJECTDIR}/src
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/src/hidlcd.o`; \
 	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
 	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} "$@.d";\
-	    $(COMPILE.c) -g -Ihidlcd -fPIC  -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/linux/hidlcd_nomain.o linux/hidlcd.c;\
+	    $(COMPILE.c) -g -Ihidlcd -fPIC  -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/hidlcd_nomain.o src/hidlcd.c;\
 	else  \
-	    ${CP} ${OBJECTDIR}/linux/hidlcd.o ${OBJECTDIR}/linux/hidlcd_nomain.o;\
+	    ${CP} ${OBJECTDIR}/src/hidlcd.o ${OBJECTDIR}/src/hidlcd_nomain.o;\
 	fi
 
 # Run Test Targets

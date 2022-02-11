@@ -21,9 +21,9 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=GNU-Linux
-CND_DLIB_EXT=so
-CND_CONF=Release
+CND_PLATFORM=GNU-MacOSX
+CND_DLIB_EXT=dylib
+CND_CONF=Mac_Debug
 CND_DISTDIR=dist
 CND_BUILDDIR=build
 
@@ -66,18 +66,16 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libhidlcd.a
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libhidlcd.${CND_DLIB_EXT}
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libhidlcd.a: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libhidlcd.${CND_DLIB_EXT}: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libhidlcd.a
-	${AR} -rv ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libhidlcd.a ${OBJECTFILES} 
-	$(RANLIB) ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libhidlcd.a
+	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libhidlcd.${CND_DLIB_EXT} ${OBJECTFILES} ${LDLIBSOPTIONS} -lhidapi -dynamiclib -install_name libhidlcd.${CND_DLIB_EXT} -fPIC
 
 ${OBJECTDIR}/src/hidlcd.o: src/hidlcd.c
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.c) -O2 -Ihidlcd -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/hidlcd.o src/hidlcd.c
+	$(COMPILE.c) -g -Ihidlcd -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/hidlcd.o src/hidlcd.c
 
 # Subprojects
 .build-subprojects:
@@ -88,13 +86,13 @@ ${OBJECTDIR}/src/hidlcd.o: src/hidlcd.c
 
 ${TESTDIR}/TestFiles/f1: ${TESTDIR}/tests/hidapi_test.o ${OBJECTFILES:%.o=%_nomain.o}
 	${MKDIR} -p ${TESTDIR}/TestFiles
-	${LINK.c} -o ${TESTDIR}/TestFiles/f1 $^ ${LDLIBSOPTIONS}   
+	${LINK.c} -o ${TESTDIR}/TestFiles/f1 $^ ${LDLIBSOPTIONS} -lhidapi  
 
 
 ${TESTDIR}/tests/hidapi_test.o: tests/hidapi_test.c 
 	${MKDIR} -p ${TESTDIR}/tests
 	${RM} "$@.d"
-	$(COMPILE.c) -O2 -Ihidlcd -I. -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/hidapi_test.o tests/hidapi_test.c
+	$(COMPILE.c) -g -Ihidlcd -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/hidapi_test.o tests/hidapi_test.c
 
 
 ${OBJECTDIR}/src/hidlcd_nomain.o: ${OBJECTDIR}/src/hidlcd.o src/hidlcd.c 
@@ -105,7 +103,7 @@ ${OBJECTDIR}/src/hidlcd_nomain.o: ${OBJECTDIR}/src/hidlcd.o src/hidlcd.c
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} "$@.d";\
-	    $(COMPILE.c) -O2 -Ihidlcd -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/hidlcd_nomain.o src/hidlcd.c;\
+	    $(COMPILE.c) -g -Ihidlcd -fPIC  -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/hidlcd_nomain.o src/hidlcd.c;\
 	else  \
 	    ${CP} ${OBJECTDIR}/src/hidlcd.o ${OBJECTDIR}/src/hidlcd_nomain.o;\
 	fi
