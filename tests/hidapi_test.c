@@ -58,6 +58,7 @@ int main(int argc, char* argv[])
             return 1;
         }
         
+/*
         wprintf(L"HIDLCD Test. Compiled with hidapi version %s, runtime version %s.\n", HID_API_VERSION_STR, hid_version_str());
 	if (hid_version()->major == HID_API_VERSION_MAJOR && hid_version()->minor == HID_API_VERSION_MINOR && hid_version()->patch == HID_API_VERSION_PATCH) {
 		wprintf(L"Compile-time version matches runtime version of hidapi.\n\n");
@@ -65,6 +66,7 @@ int main(int argc, char* argv[])
 	else {
 		wprintf(L"Compile-time version is different than runtime version of hidapi.\n]n");
 	}        
+*/
         
 	// Open the device using the VID, PID,
 	// and optionally the Serial number.
