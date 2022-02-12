@@ -26,16 +26,7 @@
  * @file 
  * @author   Alex Bratchik 
  * @defgroup API HID API
- * @mainpage HIDLCD Driver library for HID-compliant LCD Display
- * 
- * This driver allows the host to communicate with HID-compliant Auxiliary Display based on Arduino. 
- * The main idea of this library is to provide a simple unified communication with the small LCD displays 
- * supported by Arduino. Such displays can be used for showing system information such as hardware temperature, 
- * fan speed, percentage of memory available etc., and used by host applications as necessary.
- * HIDLCD is build on top of the HIDAPI library and provides the next level of abstraction specific to 
- * the HID-compliant auxiliary LCD displays.
- * 
- * @ref API
+ * API
  */
 
 #ifndef HIDLCD_H
