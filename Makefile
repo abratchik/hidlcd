@@ -53,6 +53,15 @@ INCDIR=/usr/local/include
 LIBDIR=/usr/local/lib
 LIBNAME=hidlcd
 
+UNAME := $(shell uname)
+ifeq ($(UNAME), Linix)
+override CONF=Linux_Debug
+endif
+ifeq ($(UNAME), Darwin)
+override CONF=Mac_Debug
+endif
+
+
 # build
 build: .build-post
 
@@ -119,13 +128,44 @@ help: .help-post
 .help-pre:
 # Add your pre 'help' code here...
 
-.help-post: .help-impl
+.help-post: 
 # Add your post 'help' code here...
-
-# Install target
-install:
+	@echo "Platform": ${UNAME}
 	@echo "Configuration": ${CND_PLATFORM_${CONF}}
-
+	@echo ""
+	@echo "This makefile supports the following configurations:"
+	@echo "    ${ALLCONFS}"
+	@echo ""
+	@echo "and the following targets:"
+	@echo "    build  (default target)"
+	@echo "    clean"
+	@echo "    clobber"
+	@echo "    all"
+	@echo "    help"
+	@echo ""
+	@echo "Makefile Usage:"
+	@echo "    make [CONF=<CONFIGURATION>] [SUB=no] build"
+	@echo "    make [CONF=<CONFIGURATION>] [SUB=no] clean"
+	@echo "    make [CONF=<CONFIGURATION>] [SUB=no] install"
+	@echo "    make [SUB=no] clobber"
+	@echo "    make [SUB=no] all"
+	@echo "    make help"
+	@echo ""
+	@echo "Target 'build' will build a specific configuration and, unless 'SUB=no',"
+	@echo "    also build subprojects."
+	@echo "Target 'clean' will clean a specific configuration and, unless 'SUB=no',"
+	@echo "    also clean subprojects."
+	@echo "Target 'clobber' will remove all built files from all configurations and,"
+	@echo "    unless 'SUB=no', also from subprojects."
+	@echo "Target 'all' will will build all configurations and, unless 'SUB=no',"
+	@echo "    also build subprojects."
+	@echo "Target 'help' prints this message."
+	@echo ""
+	
+# Install target
+.PHONY: install
+install: .all-pre
+	
 	@install -v -m 557 ${CND_ARTIFACT_PATH_${CONF}} ${LIBDIR}
 	@${MKDIR} -p ${INCDIR}/${LIBNAME}
 	@install -v -m 557 ${LIBNAME}/${LIBNAME}.h ${INCDIR}/${LIBNAME}

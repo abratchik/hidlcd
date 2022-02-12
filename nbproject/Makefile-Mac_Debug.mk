@@ -70,12 +70,12 @@ LDLIBSOPTIONS=
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libhidlcd.${CND_DLIB_EXT}: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libhidlcd.${CND_DLIB_EXT} ${OBJECTFILES} ${LDLIBSOPTIONS} -lhidapi -dynamiclib -install_name libhidlcd.${CND_DLIB_EXT} -fPIC
+	gcc -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libhidlcd.${CND_DLIB_EXT} ${OBJECTFILES} ${LDLIBSOPTIONS} -lhidapi -dynamiclib -install_name libhidlcd.${CND_DLIB_EXT} -fPIC
 
 ${OBJECTDIR}/src/hidlcd.o: src/hidlcd.c
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.c) -g -Ihidlcd -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/hidlcd.o src/hidlcd.c
+	$(COMPILE.c) -g -Ihidlcd -std=c11 -fPIC  -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/hidlcd.o src/hidlcd.c
 
 # Subprojects
 .build-subprojects:
@@ -92,7 +92,7 @@ ${TESTDIR}/TestFiles/f1: ${TESTDIR}/tests/hidapi_test.o ${OBJECTFILES:%.o=%_noma
 ${TESTDIR}/tests/hidapi_test.o: tests/hidapi_test.c 
 	${MKDIR} -p ${TESTDIR}/tests
 	${RM} "$@.d"
-	$(COMPILE.c) -g -Ihidlcd -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/hidapi_test.o tests/hidapi_test.c
+	$(COMPILE.c) -g -Ihidlcd -std=c11 -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/hidapi_test.o tests/hidapi_test.c
 
 
 ${OBJECTDIR}/src/hidlcd_nomain.o: ${OBJECTDIR}/src/hidlcd.o src/hidlcd.c 
@@ -103,7 +103,7 @@ ${OBJECTDIR}/src/hidlcd_nomain.o: ${OBJECTDIR}/src/hidlcd.o src/hidlcd.c
 	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
 	then  \
 	    ${RM} "$@.d";\
-	    $(COMPILE.c) -g -Ihidlcd -fPIC  -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/hidlcd_nomain.o src/hidlcd.c;\
+	    $(COMPILE.c) -g -Ihidlcd -std=c11 -fPIC  -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/hidlcd_nomain.o src/hidlcd.c;\
 	else  \
 	    ${CP} ${OBJECTDIR}/src/hidlcd.o ${OBJECTDIR}/src/hidlcd_nomain.o;\
 	fi

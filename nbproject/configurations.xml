@@ -182,6 +182,7 @@
       </toolsSet>
       <compileType>
         <cTool>
+          <standard>10</standard>
           <incDir>
             <pElem>hidlcd</pElem>
           </incDir>
@@ -192,6 +193,7 @@
           </incDir>
         </ccTool>
         <linkerTool>
+          <commandlineTool>gcc</commandlineTool>
           <commandLine>-lhidapi</commandLine>
         </linkerTool>
       </compileType>
