@@ -41,6 +41,10 @@ Please ensure Xcode Command Line Tools installed on your Mac. This can be done b
 
 The rest of the installation is the same as for Linux.
 
+## Testing
+Once the driver is installed, you can test it. Navigate to the root folder of this repository and run the 
+`make test`. If everything is installed properly, you should see the test messages on the LCD screen.
+
 ## Usage
 TBD
 
