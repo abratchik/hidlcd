@@ -14,8 +14,6 @@
       <logicalFolder name="hidlcd" displayName="hidlcd" projectFiles="true">
         <itemPath>hidlcd/hidlcd.h</itemPath>
       </logicalFolder>
-      <logicalFolder name="m4" displayName="m4" projectFiles="true">
-      </logicalFolder>
       <logicalFolder name="linux" displayName="src" projectFiles="true">
         <itemPath>src/hidlcd.c</itemPath>
       </logicalFolder>
