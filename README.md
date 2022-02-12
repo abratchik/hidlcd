@@ -46,7 +46,7 @@ Once the driver is installed, you can test it. Navigate to the root folder of th
 `make test`. If everything is installed properly, you should see the test messages on the LCD screen.
 
 ## Usage
-API documentation can be found [here](html/doc/index.html).
+API documentation can be found [here](doc/html/index.html).
 
 ## License
 
