@@ -21,7 +21,8 @@ Compatible types of displays include:
 ## Architecture of the solution
 The overall architecture of the solution is represented on the image below:
 
-![Alt text](https://github.com/abratchik/HIDAuxiliaryDisplay/blob/master/img/HIDAuxiliaryDisplayArchitecture.png)
+<img src="https://raw.githubusercontent.com/abratchik/HIDAuxiliaryDisplay/master/img/HIDAuxiliaryDisplayArchitecture.png" 
+     alt="drawing" style="width:800px;"/>
 
 The solution is consisted of 2 parts - the HID-compliant LCD display and the host. The host part 
 contains the auxdisplay service, the HIDLCD driver (this project) and the HIDAPI library.
