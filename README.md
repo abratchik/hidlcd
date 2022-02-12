@@ -16,6 +16,7 @@ Compatible types of displays include:
 
 ## Supported operating systems
 * Linux (tested on Ubuntu 18.04 LTS)
+* Mac OSX (tested on macOS Big Sur 11.6.2)
 
 ## Architecture of the solution
 The overall architecture of the solution is represented on the image below:
@@ -26,15 +27,19 @@ The solution is consisted of 2 parts - the HID-compliant LCD display and the hos
 contains the auxdisplay service, the HIDLCD driver (this project) and the HIDAPI library.
 
 ## Installation
-Currently, only Linux hosts are supported so the installation procedure below describes the steps to be performed 
-on Linux.
-
+### Linux
 Before executing the steps below, please ensure the developer tools are installed on your host. If your operating 
 system is Ubuntu, you can run `sudo apt update` & `sudo apt install build-essential` in the bash terminal. 
 
 1. Install [HIDAPI library](https://github.com/libusb/hidapi). Just follow the instructions in HIDAPI Readme.
 2. Clone this repository to a folder on your host machine.
 3. Navigate to the folder and execute `make` and `sudo make install`
+
+### Mac OSX
+Please ensure Xcode Command Line Tools installed on your Mac. This can be done by running the command 
+`xcode-select --install` in the terminal.
+
+The rest of the installation is the same as for Linux.
 
 ## Usage
 TBD
