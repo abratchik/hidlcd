@@ -75,6 +75,7 @@ typedef enum {
     
 /**
  * @brief Modes of setting the command flags to the LCD display
+ * @ingroup API
  */    
 typedef enum {
     HID_ADCMD_MODE_DEFAULT,     ///< Command flags are added to the existing state of screen
@@ -85,6 +86,7 @@ typedef enum {
 /**
  * @brief The structure holding the physical parameters and other capabilities of
  *        the LCD display
+ * @ingroup API
  */    
 typedef struct
 {
