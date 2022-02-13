@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hid_20api',['HID API',['../group__API.html',1,'']]]
+  ['hidlcd_20api',['HIDLCD API',['../group__API.html',1,'']]]
 ];

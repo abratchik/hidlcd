@@ -54,7 +54,7 @@ LIBDIR=/usr/local/lib
 LIBNAME=hidlcd
 
 UNAME := $(shell uname)
-ifeq ($(UNAME), Linix)
+ifeq ($(UNAME), Linux)
 override CONF=Linux_Debug
 endif
 ifeq ($(UNAME), Darwin)

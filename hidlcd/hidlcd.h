@@ -26,7 +26,7 @@
  * @file 
  * HIDLCD Driver API Header File.
  * @author   Alex Bratchik 
- * @defgroup API HID API
+ * @defgroup API HIDLCD API
  * HIDLCD Driver API is an extension of HIDAPI library and build on top of it. The purpose of the 
  * API is to create higher level of abstraction on top of HIDAPI, which only provide raw API calls.
  */

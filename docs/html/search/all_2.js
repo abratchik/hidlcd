@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['hid_20api',['HID API',['../group__API.html',1,'']]],
+  ['hidlcd_20api',['HIDLCD API',['../group__API.html',1,'']]],
   ['hid_5fadcc_5fblink',['HID_ADCC_BLINK',['../hidlcd_8h.html#a13005b68e705d0033f93d069156a656a',1,'hidlcd.h']]],
   ['hid_5fadcc_5fenable',['HID_ADCC_ENABLE',['../hidlcd_8h.html#affab81d7aff670596c70004116280341',1,'hidlcd.h']]],
   ['hid_5fadcc_5fincrement',['HID_ADCC_INCREMENT',['../hidlcd_8h.html#ab35eebcd769df894de1058d8efed22e3',1,'hidlcd.h']]],
