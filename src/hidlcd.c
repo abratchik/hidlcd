@@ -69,7 +69,7 @@ int hidlcd_set_cursor(hid_device *dev, u_int8_t row, u_int8_t col) {
     return res;
 }
 
-int hidlcd_set_cursor_flags_ext(hid_device *dev, u_int8_t flags, u_int8_t mode) {
+int hidlcd_set_cursor_flags_ext(hid_device *dev, u_int8_t flags, HID_ADCMD_MODE mode) {
     
     if(!dev) return -1;
     
@@ -125,7 +125,7 @@ int hidlcd_send_command(hid_device *dev, u_int8_t command) {
     return hidlcd_send_command_ext(dev, command, HID_ADCMD_MODE_DEFAULT);
 }
 
-int hidlcd_send_command_ext(hid_device *dev, u_int8_t command, u_int8_t mode) {
+int hidlcd_send_command_ext(hid_device *dev, u_int8_t command, HID_ADCMD_MODE mode) {
     
     if(!dev) return -1;
     

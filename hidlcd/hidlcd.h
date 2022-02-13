@@ -24,6 +24,7 @@
 
 /**
  * @file 
+ * HIDLCD Driver API Header File.
  * @author   Alex Bratchik 
  * @defgroup API HID API
  * HIDLCD Driver API is an extension of HIDAPI library and build on top of it. The purpose of the 
@@ -41,14 +42,6 @@ extern "C" {
 #include <string.h>
 #include <hidapi/hidapi.h>
 
-#define HID_AUXD_DISPLAY_PARAMS      0x01 ///< Display parameters report
-#define HID_AUXD_CURSOR_POS          0x02 ///< Cursor position report
-#define HID_AUXD_CHAR_REPORT         0x03 ///< Character report
-#define HID_AUXD_FONT_REPORT         0x04 ///< Font report
-#define HID_AUXD_CTRL_REPORT         0x05 ///< Control report
-#define HID_AUXD_CURSOR_FLAGS        0x06 ///< Control report
-
-
 // Display params flags
 #define HID_AUXD_ASCII_CHARSET      0x80 ///< Screen supports
 #define HID_AUXD_DATAREAD_BACK      0x40 ///< Character Report can be read back when set
@@ -62,21 +55,37 @@ extern "C" {
 #define HID_AUXD_HSCROLL            0x08 ///< Horizintal Scroll    
 #define HID_AUXD_DISABLE            0x0  ///< Display disable
     
-#define HID_ADCMD_MODE_DEFAULT      0x0  ///< Command flags are added to the existing state of screen
-#define HID_ADCMD_MODE_OFF          0x1  ///< Clear the command/state
-#define HID_ADCMD_MODE_OVERWRITE    0x2  ///< Ovewrite the state of the screen  
-    
 // Cursor control flags
 #define HID_ADCC_PIXELPOS           0x80 ///< Cursor Pixel Positioning
 #define HID_ADCC_INCREMENT          0x40 ///< Cursor Mode = Increment
 #define HID_ADCC_ENABLE             0x20 ///< Cursor Enable
 #define HID_ADCC_BLINK              0x10 ///< Cursor Blink     
+
+/**
+ * @brief Supported HID reports for HID LCD Display 
+ */    
+typedef enum {
+    HID_AUXD_DISPLAY_PARAMS = 0x01, ///< Display parameters report
+    HID_AUXD_CURSOR_POS     = 0x02, ///< Cursor position report
+    HID_AUXD_CHAR_REPORT    = 0x03, ///< Character report
+    HID_AUXD_FONT_REPORT    = 0x04, ///< Font report
+    HID_AUXD_CTRL_REPORT    = 0x05, ///< Control report
+    HID_AUXD_CURSOR_FLAGS   = 0x06  ///< Cursor flags
+} HID_AUXD_REPORT;    
     
+/**
+ * @brief Modes of setting the command flags to the LCD display
+ */    
+typedef enum {
+    HID_ADCMD_MODE_DEFAULT,     ///< Command flags are added to the existing state of screen
+    HID_ADCMD_MODE_OFF,         ///< Clear the command/state
+    HID_ADCMD_MODE_OVERWRITE    ///< Ovewrite the state of the screen  
+} HID_ADCMD_MODE;   
+
 /**
  * @brief The structure holding the physical parameters and other capabilities of
  *        the LCD display
- */
-    
+ */    
 typedef struct
 {
   u_int8_t rows;     ///< number of rows (HID usage 0x35)  
@@ -150,7 +159,7 @@ int HID_API_EXPORT HID_API_CALL hidlcd_set_cursor(hid_device *dev, u_int8_t row,
  * @param mode  LCD command mode 
  * @return Returns positive value if success and -1 if error.
  */
-int HID_API_EXPORT HID_API_CALL hidlcd_set_cursor_flags_ext(hid_device *dev, u_int8_t flags, u_int8_t mode);
+int HID_API_EXPORT HID_API_CALL hidlcd_set_cursor_flags_ext(hid_device *dev, u_int8_t flags, HID_ADCMD_MODE mode);
 
 /**
  * @brief Prints the text on the LCD screen
@@ -174,7 +183,7 @@ int HID_API_EXPORT HID_API_CALL hidlcd_print(hid_device *dev,
  * @param mode              Mode of command
  * @return                  Returns positive value if success and -1 if error.
  */
-int HID_API_EXPORT HID_API_CALL hidlcd_send_command_ext(hid_device *dev, u_int8_t command, u_int8_t mode);
+int HID_API_EXPORT HID_API_CALL hidlcd_send_command_ext(hid_device *dev, u_int8_t command, HID_ADCMD_MODE mode);
 
 /**
  * @brief Sends the command to the LCD display 

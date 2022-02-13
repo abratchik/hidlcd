@@ -66,11 +66,15 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">hidlcd.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>HIDLCD Driver API Header File.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;hidapi/hidapi.h&gt;</code><br />
@@ -90,30 +94,6 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a5042d962440a29403f991f980f208e41"><td class="memItemLeft" align="right" valign="top"><a id="a5042d962440a29403f991f980f208e41"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hidlcd_8h.html#a5042d962440a29403f991f980f208e41">HID_AUXD_DISPLAY_PARAMS</a>&#160;&#160;&#160;0x01</td></tr>
-<tr class="memdesc:a5042d962440a29403f991f980f208e41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display parameters report. <br /></td></tr>
-<tr class="separator:a5042d962440a29403f991f980f208e41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab44584556ff0122c2be007658ae49837"><td class="memItemLeft" align="right" valign="top"><a id="ab44584556ff0122c2be007658ae49837"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hidlcd_8h.html#ab44584556ff0122c2be007658ae49837">HID_AUXD_CURSOR_POS</a>&#160;&#160;&#160;0x02</td></tr>
-<tr class="memdesc:ab44584556ff0122c2be007658ae49837"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cursor position report. <br /></td></tr>
-<tr class="separator:ab44584556ff0122c2be007658ae49837"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbafade9596c65093964384e7eb1c46f"><td class="memItemLeft" align="right" valign="top"><a id="abbafade9596c65093964384e7eb1c46f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hidlcd_8h.html#abbafade9596c65093964384e7eb1c46f">HID_AUXD_CHAR_REPORT</a>&#160;&#160;&#160;0x03</td></tr>
-<tr class="memdesc:abbafade9596c65093964384e7eb1c46f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Character report. <br /></td></tr>
-<tr class="separator:abbafade9596c65093964384e7eb1c46f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa291f31293728a2fac1cdaa837c2f175"><td class="memItemLeft" align="right" valign="top"><a id="aa291f31293728a2fac1cdaa837c2f175"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hidlcd_8h.html#aa291f31293728a2fac1cdaa837c2f175">HID_AUXD_FONT_REPORT</a>&#160;&#160;&#160;0x04</td></tr>
-<tr class="memdesc:aa291f31293728a2fac1cdaa837c2f175"><td class="mdescLeft">&#160;</td><td class="mdescRight">Font report. <br /></td></tr>
-<tr class="separator:aa291f31293728a2fac1cdaa837c2f175"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad7ed55b46dd30f39b9ad4496641ba60"><td class="memItemLeft" align="right" valign="top"><a id="aad7ed55b46dd30f39b9ad4496641ba60"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hidlcd_8h.html#aad7ed55b46dd30f39b9ad4496641ba60">HID_AUXD_CTRL_REPORT</a>&#160;&#160;&#160;0x05</td></tr>
-<tr class="memdesc:aad7ed55b46dd30f39b9ad4496641ba60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Control report. <br /></td></tr>
-<tr class="separator:aad7ed55b46dd30f39b9ad4496641ba60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af89b3f11d1fdc5d558f36e38de08813a"><td class="memItemLeft" align="right" valign="top"><a id="af89b3f11d1fdc5d558f36e38de08813a"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hidlcd_8h.html#af89b3f11d1fdc5d558f36e38de08813a">HID_AUXD_CURSOR_FLAGS</a>&#160;&#160;&#160;0x06</td></tr>
-<tr class="memdesc:af89b3f11d1fdc5d558f36e38de08813a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Control report. <br /></td></tr>
-<tr class="separator:af89b3f11d1fdc5d558f36e38de08813a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11ed1c8885387fcaef425ec16bf8f6d1"><td class="memItemLeft" align="right" valign="top"><a id="a11ed1c8885387fcaef425ec16bf8f6d1"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hidlcd_8h.html#a11ed1c8885387fcaef425ec16bf8f6d1">HID_AUXD_ASCII_CHARSET</a>&#160;&#160;&#160;0x80</td></tr>
 <tr class="memdesc:a11ed1c8885387fcaef425ec16bf8f6d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Screen supports. <br /></td></tr>
@@ -150,18 +130,6 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hidlcd_8h.html#a9ca983345d847d128e52d03f19fd81b5">HID_AUXD_DISABLE</a>&#160;&#160;&#160;0x0</td></tr>
 <tr class="memdesc:a9ca983345d847d128e52d03f19fd81b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display disable. <br /></td></tr>
 <tr class="separator:a9ca983345d847d128e52d03f19fd81b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1874afc9cbb34febd4fbc780d7180de"><td class="memItemLeft" align="right" valign="top"><a id="ab1874afc9cbb34febd4fbc780d7180de"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hidlcd_8h.html#ab1874afc9cbb34febd4fbc780d7180de">HID_ADCMD_MODE_DEFAULT</a>&#160;&#160;&#160;0x0</td></tr>
-<tr class="memdesc:ab1874afc9cbb34febd4fbc780d7180de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command flags are added to the existing state of screen. <br /></td></tr>
-<tr class="separator:ab1874afc9cbb34febd4fbc780d7180de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cc7c1efd85b98deea98dc7ba6be892f"><td class="memItemLeft" align="right" valign="top"><a id="a0cc7c1efd85b98deea98dc7ba6be892f"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hidlcd_8h.html#a0cc7c1efd85b98deea98dc7ba6be892f">HID_ADCMD_MODE_OFF</a>&#160;&#160;&#160;0x1</td></tr>
-<tr class="memdesc:a0cc7c1efd85b98deea98dc7ba6be892f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the command/state. <br /></td></tr>
-<tr class="separator:a0cc7c1efd85b98deea98dc7ba6be892f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab033c7a7187b9974b0adb1edcf0f76b1"><td class="memItemLeft" align="right" valign="top"><a id="ab033c7a7187b9974b0adb1edcf0f76b1"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hidlcd_8h.html#ab033c7a7187b9974b0adb1edcf0f76b1">HID_ADCMD_MODE_OVERWRITE</a>&#160;&#160;&#160;0x2</td></tr>
-<tr class="memdesc:ab033c7a7187b9974b0adb1edcf0f76b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ovewrite the state of the screen. <br /></td></tr>
-<tr class="separator:ab033c7a7187b9974b0adb1edcf0f76b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4087c655e349b29254aeacf47f96d479"><td class="memItemLeft" align="right" valign="top"><a id="a4087c655e349b29254aeacf47f96d479"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hidlcd_8h.html#a4087c655e349b29254aeacf47f96d479">HID_ADCC_PIXELPOS</a>&#160;&#160;&#160;0x80</td></tr>
 <tr class="memdesc:a4087c655e349b29254aeacf47f96d479"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cursor Pixel Positioning. <br /></td></tr>
@@ -178,6 +146,27 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hidlcd_8h.html#a13005b68e705d0033f93d069156a656a">HID_ADCC_BLINK</a>&#160;&#160;&#160;0x10</td></tr>
 <tr class="memdesc:a13005b68e705d0033f93d069156a656a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cursor Blink. <br /></td></tr>
 <tr class="separator:a13005b68e705d0033f93d069156a656a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a338b2f336994690b4d2a2effaea3bff4"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hidlcd_8h.html#a338b2f336994690b4d2a2effaea3bff4">HID_AUXD_REPORT</a> { <br />
+&#160;&#160;<a class="el" href="hidlcd_8h.html#a338b2f336994690b4d2a2effaea3bff4a5dfe4d4392045f39ccff446d3269df2c">HID_AUXD_DISPLAY_PARAMS</a> = 0x01, 
+<a class="el" href="hidlcd_8h.html#a338b2f336994690b4d2a2effaea3bff4a8734cc97d1918e3fccd2ac813c739962">HID_AUXD_CURSOR_POS</a> = 0x02, 
+<a class="el" href="hidlcd_8h.html#a338b2f336994690b4d2a2effaea3bff4abcdd7b7c5915738d4bd5efe79f6e93e8">HID_AUXD_CHAR_REPORT</a> = 0x03, 
+<a class="el" href="hidlcd_8h.html#a338b2f336994690b4d2a2effaea3bff4a5afe9b2b984ba4610f4cdf97c7bb84f9">HID_AUXD_FONT_REPORT</a> = 0x04, 
+<br />
+&#160;&#160;<a class="el" href="hidlcd_8h.html#a338b2f336994690b4d2a2effaea3bff4a57ed0ebb9d609d9c472ce61e4735ab7e">HID_AUXD_CTRL_REPORT</a> = 0x05, 
+<a class="el" href="hidlcd_8h.html#a338b2f336994690b4d2a2effaea3bff4a4b5a8c260389031d2037c32c5c8185ce">HID_AUXD_CURSOR_FLAGS</a> = 0x06
+<br />
+ }<tr class="memdesc:a338b2f336994690b4d2a2effaea3bff4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supported HID reports for HID LCD Display.  <a href="hidlcd_8h.html#a338b2f336994690b4d2a2effaea3bff4">More...</a><br /></td></tr>
+</td></tr>
+<tr class="separator:a338b2f336994690b4d2a2effaea3bff4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fb1437ee84aa07f2115e7a74004bcea"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hidlcd_8h.html#a6fb1437ee84aa07f2115e7a74004bcea">HID_ADCMD_MODE</a> { <a class="el" href="hidlcd_8h.html#a6fb1437ee84aa07f2115e7a74004bceaaa016d3246ce5a56b3d743cffc88e7f64">HID_ADCMD_MODE_DEFAULT</a>, 
+<a class="el" href="hidlcd_8h.html#a6fb1437ee84aa07f2115e7a74004bceaa7abb90a26e7470b39bc1436e83ce58cc">HID_ADCMD_MODE_OFF</a>, 
+<a class="el" href="hidlcd_8h.html#a6fb1437ee84aa07f2115e7a74004bceaa435fd852146dc358e148055952623a04">HID_ADCMD_MODE_OVERWRITE</a>
+ }<tr class="memdesc:a6fb1437ee84aa07f2115e7a74004bcea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modes of setting the command flags to the LCD display.  <a href="hidlcd_8h.html#a6fb1437ee84aa07f2115e7a74004bcea">More...</a><br /></td></tr>
+</td></tr>
+<tr class="separator:a6fb1437ee84aa07f2115e7a74004bcea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -199,22 +188,78 @@ Functions</h2></td></tr>
 <tr class="memitem:ga0c27c33eef05230a5ed6e1d6ea6cb489"><td class="memItemLeft" align="right" valign="top">int HID_API_EXPORT HID_API_CALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__API.html#ga0c27c33eef05230a5ed6e1d6ea6cb489">hidlcd_set_cursor</a> (hid_device *dev, u_int8_t row, u_int8_t col)</td></tr>
 <tr class="memdesc:ga0c27c33eef05230a5ed6e1d6ea6cb489"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function sets the cursor of the LCD display in the specified position.  <a href="group__API.html#ga0c27c33eef05230a5ed6e1d6ea6cb489">More...</a><br /></td></tr>
 <tr class="separator:ga0c27c33eef05230a5ed6e1d6ea6cb489"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae33cb27bbbe1ae372fd3b98f16bd665d"><td class="memItemLeft" align="right" valign="top">int HID_API_EXPORT HID_API_CALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__API.html#gae33cb27bbbe1ae372fd3b98f16bd665d">hidlcd_set_cursor_flags_ext</a> (hid_device *dev, u_int8_t flags, u_int8_t mode)</td></tr>
-<tr class="memdesc:gae33cb27bbbe1ae372fd3b98f16bd665d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function sets the cursor extended parameters and display mode.  <a href="group__API.html#gae33cb27bbbe1ae372fd3b98f16bd665d">More...</a><br /></td></tr>
-<tr class="separator:gae33cb27bbbe1ae372fd3b98f16bd665d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1be7d84ea7685ba61392f04d8105a715"><td class="memItemLeft" align="right" valign="top">int HID_API_EXPORT HID_API_CALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__API.html#ga1be7d84ea7685ba61392f04d8105a715">hidlcd_set_cursor_flags_ext</a> (hid_device *dev, u_int8_t flags, <a class="el" href="hidlcd_8h.html#a6fb1437ee84aa07f2115e7a74004bcea">HID_ADCMD_MODE</a> mode)</td></tr>
+<tr class="memdesc:ga1be7d84ea7685ba61392f04d8105a715"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function sets the cursor extended parameters and display mode.  <a href="group__API.html#ga1be7d84ea7685ba61392f04d8105a715">More...</a><br /></td></tr>
+<tr class="separator:ga1be7d84ea7685ba61392f04d8105a715"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab5c3e5de5b25ce048739fb5570fceabc"><td class="memItemLeft" align="right" valign="top">int HID_API_EXPORT HID_API_CALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__API.html#gab5c3e5de5b25ce048739fb5570fceabc">hidlcd_print</a> (hid_device *dev, <a class="el" href="structHIDDisplayParams.html">HIDDisplayParams</a> *display_params, const char *string)</td></tr>
 <tr class="memdesc:gab5c3e5de5b25ce048739fb5570fceabc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the text on the LCD screen.  <a href="group__API.html#gab5c3e5de5b25ce048739fb5570fceabc">More...</a><br /></td></tr>
 <tr class="separator:gab5c3e5de5b25ce048739fb5570fceabc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad6c000babbc378230a1a7023bd53b8b2"><td class="memItemLeft" align="right" valign="top">int HID_API_EXPORT HID_API_CALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__API.html#gad6c000babbc378230a1a7023bd53b8b2">hidlcd_send_command_ext</a> (hid_device *dev, u_int8_t command, u_int8_t mode)</td></tr>
-<tr class="memdesc:gad6c000babbc378230a1a7023bd53b8b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the command to the LCD display with mode.  <a href="group__API.html#gad6c000babbc378230a1a7023bd53b8b2">More...</a><br /></td></tr>
-<tr class="separator:gad6c000babbc378230a1a7023bd53b8b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac303c319db46f4f6957403ab9cbffb1f"><td class="memItemLeft" align="right" valign="top">int HID_API_EXPORT HID_API_CALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__API.html#gac303c319db46f4f6957403ab9cbffb1f">hidlcd_send_command_ext</a> (hid_device *dev, u_int8_t command, <a class="el" href="hidlcd_8h.html#a6fb1437ee84aa07f2115e7a74004bcea">HID_ADCMD_MODE</a> mode)</td></tr>
+<tr class="memdesc:gac303c319db46f4f6957403ab9cbffb1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the command to the LCD display with mode.  <a href="group__API.html#gac303c319db46f4f6957403ab9cbffb1f">More...</a><br /></td></tr>
+<tr class="separator:gac303c319db46f4f6957403ab9cbffb1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1ec7653ee073e917475c01ee9e1252e4"><td class="memItemLeft" align="right" valign="top">int HID_API_EXPORT HID_API_CALL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__API.html#ga1ec7653ee073e917475c01ee9e1252e4">hidlcd_send_command</a> (hid_device *dev, u_int8_t command)</td></tr>
 <tr class="memdesc:ga1ec7653ee073e917475c01ee9e1252e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the command to the LCD display.  <a href="group__API.html#ga1ec7653ee073e917475c01ee9e1252e4">More...</a><br /></td></tr>
 <tr class="separator:ga1ec7653ee073e917475c01ee9e1252e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Alex Bratchik </dd></dl>
-</div></div><!-- contents -->
+<div class="textblock"><p>HIDLCD Driver API Header File. </p>
+<dl class="section author"><dt>Author</dt><dd>Alex Bratchik </dd></dl>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a6fb1437ee84aa07f2115e7a74004bcea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fb1437ee84aa07f2115e7a74004bcea">&#9670;&nbsp;</a></span>HID_ADCMD_MODE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="hidlcd_8h.html#a6fb1437ee84aa07f2115e7a74004bcea">HID_ADCMD_MODE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Modes of setting the command flags to the LCD display. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a6fb1437ee84aa07f2115e7a74004bceaaa016d3246ce5a56b3d743cffc88e7f64"></a>HID_ADCMD_MODE_DEFAULT&#160;</td><td class="fielddoc"><p>Command flags are added to the existing state of screen. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6fb1437ee84aa07f2115e7a74004bceaa7abb90a26e7470b39bc1436e83ce58cc"></a>HID_ADCMD_MODE_OFF&#160;</td><td class="fielddoc"><p>Clear the command/state. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a6fb1437ee84aa07f2115e7a74004bceaa435fd852146dc358e148055952623a04"></a>HID_ADCMD_MODE_OVERWRITE&#160;</td><td class="fielddoc"><p>Ovewrite the state of the screen. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a338b2f336994690b4d2a2effaea3bff4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a338b2f336994690b4d2a2effaea3bff4">&#9670;&nbsp;</a></span>HID_AUXD_REPORT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="hidlcd_8h.html#a338b2f336994690b4d2a2effaea3bff4">HID_AUXD_REPORT</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Supported HID reports for HID LCD Display. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a338b2f336994690b4d2a2effaea3bff4a5dfe4d4392045f39ccff446d3269df2c"></a>HID_AUXD_DISPLAY_PARAMS&#160;</td><td class="fielddoc"><p>Display parameters report. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a338b2f336994690b4d2a2effaea3bff4a8734cc97d1918e3fccd2ac813c739962"></a>HID_AUXD_CURSOR_POS&#160;</td><td class="fielddoc"><p>Cursor position report. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a338b2f336994690b4d2a2effaea3bff4abcdd7b7c5915738d4bd5efe79f6e93e8"></a>HID_AUXD_CHAR_REPORT&#160;</td><td class="fielddoc"><p>Character report. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a338b2f336994690b4d2a2effaea3bff4a5afe9b2b984ba4610f4cdf97c7bb84f9"></a>HID_AUXD_FONT_REPORT&#160;</td><td class="fielddoc"><p>Font report. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a338b2f336994690b4d2a2effaea3bff4a57ed0ebb9d609d9c472ce61e4735ab7e"></a>HID_AUXD_CTRL_REPORT&#160;</td><td class="fielddoc"><p>Control report. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a338b2f336994690b4d2a2effaea3bff4a4b5a8c260389031d2037c32c5c8185ce"></a>HID_AUXD_CURSOR_FLAGS&#160;</td><td class="fielddoc"><p>Cursor flags. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
