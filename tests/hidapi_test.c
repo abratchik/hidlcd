@@ -121,6 +121,7 @@ int main(int argc, char* argv[])
         }
         
         res = hidlcd_set_cursor(handle, 0, 0);
+        usleep(5000);
         if(res > 0) {
             wprintf(L"Cursor set to (0,0)\n");
         }
@@ -140,6 +141,7 @@ int main(int argc, char* argv[])
         }       
         
         res = hidlcd_set_cursor(handle, 1, 0);
+        usleep(5000);
         if(res > 0) {
             wprintf(L"Cursor set to (1,0)\n");
         }
@@ -162,6 +164,7 @@ int main(int argc, char* argv[])
         usleep(TEST_DELAY);
         
         res = hidlcd_send_command(handle, HID_AUXD_CLEAR);
+        usleep(5000);
         if(res > 0) {
             wprintf(L"Successfully cleared screen\n");
         }
@@ -188,6 +191,7 @@ int main(int argc, char* argv[])
         usleep(TEST_DELAY);
         
         res = hidlcd_send_command(handle, HID_AUXD_ENABLE | HID_AUXD_HSCROLL);
+        usleep(5000);
         if(res > 0) {
             wprintf(L"Successfully switched on the screen\n");
         }
@@ -198,23 +202,27 @@ int main(int argc, char* argv[])
         }   
         
         res = hidlcd_print(handle, dp, "Hello, LCD!");
+        usleep(5000);
         
         res = hidlcd_set_cursor_flags_ext(handle, HID_ADCC_ENABLE | HID_ADCC_BLINK,0);
                 
         usleep(TEST_DELAY);
         res = hidlcd_set_cursor_flags_ext(handle, HID_ADCC_INCREMENT,HID_ADCMD_MODE_OVERWRITE);
-        
+        usleep(5000);
         res = hidlcd_send_command_ext(handle, HID_AUXD_HSCROLL, HID_ADCMD_MODE_OFF);
+        usleep(5000);
         res = hidlcd_send_command(handle, HID_AUXD_CLEAR);
-                
+        usleep(5000);        
         res = hidlcd_print(handle, dp, "Hi, Arduino!");  
-        
+        usleep(5000);
         res = hidlcd_set_cursor(handle, 1, 0);
+        usleep(5000);
         res = hidlcd_print(handle, dp, "Second line!"); 
         
         usleep(TEST_DELAY);
         
         res = hidlcd_send_command(handle, HID_AUXD_CLEAR);
+        usleep(5000);
         res = hidlcd_print(handle, dp, "SUCCESS!"); 
         
 
